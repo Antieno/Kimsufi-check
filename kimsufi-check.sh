@@ -2,7 +2,7 @@
 
 set -x
 
-cd /opt/prod/script/kimsuficheck/
+cd /yourscriptdirectory/
 
 rm *.txt
 
@@ -16,7 +16,7 @@ smsmax=5
 
 countersms=0
 
-while [[ -z $result ]] && (( $countersms < $smsmax )) && (( $run < $runmax )); #tant que la variable $result est vide et nombre sms envoyés sont inf ou égal au nombr de sms prédéfinis
+while [[ -z $result ]] && (( $countersms < $smsmax )) && (( $run < $runmax ));
 
 	do 
 
@@ -24,13 +24,13 @@ while [[ -z $result ]] && (( $countersms < $smsmax )) && (( $run < $runmax )); #
 		
 		result=$(diff -q kimsufi.txt kimsufi_2.txt)
 		
-		if [[ -n $result ]] ; then #si la variable n'est pas vide
+		if [[ -n $result ]] ; then 
 		
-			curl -i -G "https://smsapi.free-mobile.fr/sendmsg?user=10113398&pass=AAm8ynqD0RF9m4&msg=Du changement sur la page Kimsufi, va vérifier Léon ! Fonce !!"
+			curl -i -G "https://smsapi.free-mobile.fr/sendmsg?user=00000000&pass=xxxxxxxxxx&msg=yourtext" #send sms with Free operator
 			
-			countersms=$(( $countersms + 1 )) # on incrémente la variable avec +1
+			countersms=$(( $countersms + 1 )) 
 			
-			unset result # suppression de la variable
+			unset result 
 			
 		fi
 		
