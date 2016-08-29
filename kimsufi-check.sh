@@ -20,7 +20,7 @@ while [[ -z $result ]] && (( $counter < $smsmax )); #tant que la variable $resul
 		
 		if [[ -n $result ]] ; then #si la variable n'est pas vide
 		
-			curl -i -G "https://smsapi.free-mobile.fr/sendmsg?user="usernumber"&pass="password"="yourtext""
+			curl -i -G "https://smsapi.free-mobile.fr/sendmsg?user="usernumber"&pass="password"&msg="yourtext""
 			
 			counter=$(( $counter + 1 )) # on incrémente la variable avec +1
 			
